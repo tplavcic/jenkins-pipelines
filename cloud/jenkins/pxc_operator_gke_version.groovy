@@ -281,15 +281,15 @@ pipeline {
                     steps {
                         CreateCluster('basic')
                         runTest('init-deploy', 'basic')
-                        runTest('limits', 'basic')
-                        runTest('monitoring', 'basic')
-                        runTest('monitoring-2-0', 'basic')
-                        runTest('affinity', 'basic')
-                        runTest('one-pod', 'basic')
-                        runTest('auto-tuning', 'basic')
-                        runTest('proxysql-sidecar-res-limits', 'basic')
-                        runTest('users', 'basic')
-                        runTest('haproxy', 'basic')
+//                        runTest('limits', 'basic')
+//                        runTest('monitoring', 'basic')
+//                        runTest('monitoring-2-0', 'basic')
+//                        runTest('affinity', 'basic')
+//                        runTest('one-pod', 'basic')
+//                        runTest('auto-tuning', 'basic')
+//                        runTest('proxysql-sidecar-res-limits', 'basic')
+//                        runTest('users', 'basic')
+//                        runTest('haproxy', 'basic')
                         ShutdownCluster('basic')
                    }
                 }
@@ -297,10 +297,10 @@ pipeline {
                     steps {
                         CreateCluster('scaling')
                         runTest('scaling', 'scaling')
-                        runTest('scaling-proxysql', 'scaling')
-                        runTest('upgrade', 'scaling')
-                        runTest('upgrade-consistency', 'scaling')
-                        runTest('security-context', 'scaling')
+//                        runTest('scaling-proxysql', 'scaling')
+//                        runTest('upgrade', 'scaling')
+//                        runTest('upgrade-consistency', 'scaling')
+//                        runTest('security-context', 'scaling')
                         ShutdownCluster('scaling')
                     }
                 }
@@ -308,9 +308,9 @@ pipeline {
                     steps {
                         CreateCluster('selfhealing')
                         runTest('storage', 'selfhealing')
-                        runTest('self-healing', 'selfhealing')
-                        runTest('self-healing-advanced', 'selfhealing')
-                        runTest('operator-self-healing', 'selfhealing')
+//                        runTest('self-healing', 'selfhealing')
+//                        runTest('self-healing-advanced', 'selfhealing')
+//                        runTest('operator-self-healing', 'selfhealing')
                         ShutdownCluster('selfhealing')
                     }
                 }
@@ -318,10 +318,10 @@ pipeline {
                     steps {
                         CreateCluster('backups')
                         runTest('recreate', 'backups')
-                        runTest('restore-to-encrypted-cluster', 'backups')
-                        runTest('demand-backup', 'backups')
-                        runTest('demand-backup-encrypted-with-tls', 'backups')
-                        runTest('scheduled-backup', 'backups')
+//                        runTest('restore-to-encrypted-cluster', 'backups')
+//                        runTest('demand-backup', 'backups')
+//                        runTest('demand-backup-encrypted-with-tls', 'backups')
+//                        runTest('scheduled-backup', 'backups')
                         ShutdownCluster('backups')
                     }
                 }
