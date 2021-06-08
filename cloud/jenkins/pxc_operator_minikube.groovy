@@ -26,7 +26,7 @@ void popArtifactFile(String FILE_NAME, String GIT_SHORT_COMMIT) {
     }
 }
 
-TestsReport = '<testsuite  name=\\"PXC\\">\n'
+TestsReport = '<testsuite name=\\"PXC\\">\n'
 testsReportMap = [:]
 void makeReport() {
     for ( test in testsReportMap ) {
@@ -262,12 +262,33 @@ pipeline {
                     }
 
                     installRpms()
-                    runTest('limits')
-                    runTest('scaling')
                     runTest('affinity')
+                    runTest('auto-tuning')
+                    runTest('limits')
                     runTest('one-pod')
-                    runTest('self-healing-advanced')
                     runTest('operator-self-healing')
+                    runTest('operator-self-healing-chaos')
+                    runTest('pitr')
+                    runTest('proxysql-sidecar-res-limits')
+                    runTest('recreate')
+                    runTest('restore-to-encrypted-cluster')
+                    runTest('scaling')
+                    runTest('scaling-proxysql')
+                    runTest('scheduled-backup')
+                    runTest('security-context')
+                    runTest('self-healing')
+                    runTest('self-healing-advanced')
+                    runTest('self-healing-advanced-chaos')
+                    runTest('self-healing-chaos')
+                    runTest('smart-update')
+                    runTest('storage')
+                    runTest('tls-issue-cert-manager')
+                    runTest('tls-issue-cert-manager-ref')
+                    runTest('tls-issue-self')
+                    runTest('upgrade-consistency')
+                    runTest('upgrade-haproxy')
+                    runTest('upgrade-proxysql')
+                    runTest('users')
                     runTest('validation-hook')
             }
             post {

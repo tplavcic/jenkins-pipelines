@@ -20,7 +20,7 @@ void popArtifactFile(String FILE_NAME, String GIT_SHORT_COMMIT) {
     }
 }
 
-TestsReport = '<testsuite  name=\\"PXC\\">\n'
+TestsReport = '<testsuite name=\\"PSMDB\\">\n'
 testsReportMap = [:]
 void makeReport() {
     for ( test in testsReportMap ) {
@@ -223,20 +223,29 @@ pipeline {
                     }
 
                     installRpms()
-                    runTest('init-deploy')
-                    runTest('limits')
-                    runTest('scaling')
-                    runTest('self-healing')
-                    runTest('operator-self-healing')
+                    runTest('arbiter')
                     runTest('demand-backup')
+                    runTest('limits')
                     runTest('liveness')
-                    runTest('security-context')
-                    runTest('smart-update')
-                    runTest('version-service')
-                    runTest('users')
-                    runTest('data-sharded')
+                    runTest('one-pod')
+                    runTest('operator-self-healing')
+                    runTest('operator-self-healing-chaos')
                     runTest('pitr')
                     runTest('pitr-sharded')
+                    runTest('rs-shard-migration')
+                    runTest('scaling')
+                    runTest('scheduled-backup')
+                    runTest('security-context')
+                    runTest('self-healing')
+                    runTest('self-healing-chaos')
+                    runTest('service-per-pod')
+                    runTest('smart-update')
+                    runTest('storage')
+                    runTest('upgrade')
+                    runTest('upgrade-consistency')
+                    runTest('upgrade-sharded')
+                    runTest('users')
+                    runTest('version-service')
             }
             post {
                 always {
