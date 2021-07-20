@@ -270,59 +270,12 @@ EOF
 
             }
         }
-        stage('E2E Upgrade') {
-            options {
-                timeout(time: 3, unit: 'HOURS')
-            }
-            steps {
-                runTest('upgrade-haproxy')
-                runTest('upgrade-proxysql')
-                runTest('smart-update')
-                runTest('upgrade-consistency')
-            }
-        }
         stage('E2E Basic Tests') {
             options {
                 timeout(time: 3, unit: 'HOURS')
             }
             steps {
-                runTest('init-deploy')
-                runTest('limits')
-                runTest('monitoring-2-0')
-                runTest('affinity')
-                runTest('one-pod')
-                runTest('auto-tuning')
-                runTest('proxysql-sidecar-res-limits')
                 runTest('users')
-                runTest('haproxy')
-                runTest('tls-issue-self')
-                runTest('tls-issue-cert-manager')
-                runTest('tls-issue-cert-manager-ref')
-                runTest('validation-hook')
-            }
-        }
-        stage('E2E Scaling') {
-            options {
-                timeout(time: 3, unit: 'HOURS')
-            }
-            steps {
-                runTest('scaling')
-                runTest('scaling-proxysql')
-                runTest('security-context')
-            }
-        }
-        stage('E2E SelfHealing') {
-            options {
-                timeout(time: 3, unit: 'HOURS')
-            }
-            steps {
-                runTest('storage')
-                runTest('self-healing')
-                runTest('self-healing-chaos')
-                runTest('self-healing-advanced')
-                runTest('self-healing-advanced-chaos')
-                runTest('operator-self-healing')
-                runTest('operator-self-healing-chaos')
             }
         }
         stage('E2E Backups') {
@@ -330,20 +283,7 @@ EOF
                 timeout(time: 3, unit: 'HOURS')
             }
             steps {
-                runTest('recreate')
-                runTest('restore-to-encrypted-cluster')
-                runTest('demand-backup')
-                runTest('demand-backup-encrypted-with-tls')
-                runTest('scheduled-backup')
                 runTest('pitr')
-            }
-        }
-        stage('E2E BigData') {
-            options {
-                timeout(time: 3, unit: 'HOURS')
-            }
-            steps {
-                runTest('big-data')
             }
         }
         stage('Make report') {
